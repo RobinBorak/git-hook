@@ -17,7 +17,7 @@ function updateReactApp (){
 	const workingDir = '/home/ubuntu/webapps/todo-gui';
 	const wwwRoot = '/home/ubuntu/www';
 
-	const command = `git pull origin master && npm install && npm run build && cp -r build/ ${wwwRoot}/todo`;
+	const command = `git pull origin master && npm install && npm run build && rm -rf ${wwwRoot}/todo && cp -r build/ ${wwwRoot}/todo`;
 		exec(command, {cwd: workingDir, maxBuffer: 1024 * 500} , (e, stdout, stderr) => {
 			if (e instanceof Error) {
 				console.error(e);

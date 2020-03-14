@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "pm2-start": "pm2 start npm --name 'git-hook' -- start",
+    "pm2-stop": "(pm2 delete 'git-hook' || true)",
+    "pm2-restart": "npm run pm2-stop && npm run pm2-start"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
