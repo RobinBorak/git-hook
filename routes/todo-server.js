@@ -16,7 +16,7 @@ router.post('/', function(req, res, next) {
 function updateNodeApp (){
 	const workingDir = '/home/ubuntu/webapps/todo-server';
 
-	const command = "git pull && npm install && (pm2 delete 'todo-server' || true) && pm2 start npm --name 'todo-server' -- start";
+	const command = "git pull origin master && npm install && (pm2 delete 'todo-server' || true) && pm2 start npm --name 'todo-server' -- start";
 		exec(command, {cwd: workingDir, maxBuffer: 1024 * 500} , (e, stdout, stderr) => {
 			if (e instanceof Error) {
 				console.error(e);

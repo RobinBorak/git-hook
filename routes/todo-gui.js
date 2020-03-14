@@ -13,11 +13,11 @@ router.post('/', function(req, res, next) {
 });
 
 
-function updateNodeApp (){
+function updateReactApp (){
 	const workingDir = '/home/ubuntu/webapps/todo-gui';
 	const wwwRoot = '/home/ubuntu/www';
 
-	const command = `git pull && npm install && npm build && cp build ${wwwRoot}/todo`;
+	const command = `git pull origin master && npm install && npm run build && cp -r build/ ${wwwRoot}/todo`;
 		exec(command, {cwd: workingDir, maxBuffer: 1024 * 500} , (e, stdout, stderr) => {
 			if (e instanceof Error) {
 				console.error(e);
